@@ -12,13 +12,15 @@ const module = 'index';
 export const SHOW_NO_RECIPIENTS = `${APP}/${module}/showNoRecipients`;
 export const REGISTER_LETTER = `${APP}/${module}/registerLetter`;
 
-const emojiValue = '🙁';
+const emojiValue = '🌞';
 export function getExpectationHeader(
     template='template',
-    tone='{action} by {date}',
-    ifText='If cc: read',
+    tone='Please, read ASAP',
+    ifText='If CC: read',
     ) {
+    const when = 'When: ';
     var templateWithValues = template
+        .replace('{when}:', when)
         .replace('{tone}', tone)
         .replace('{ifcc}', ifText)
         .replace('{emoji}', emojiValue);
